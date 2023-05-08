@@ -1,7 +1,13 @@
 {
    "label": "Version Test",
    "name": "versionTest",
-   "dependencies": [],
+   "dependencies": [
+       {
+           "type": "service",
+           "name": "http",
+           "version": "v1.1.5"
+       }
+   ],
    "configuration":[],
    "events": [],
    "metadata": [
