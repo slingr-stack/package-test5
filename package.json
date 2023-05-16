@@ -1,6 +1,6 @@
 {
-   "label": "Version Test",
-   "name": "versionTest",
+   "label": "Service Test",
+   "name": "serviceTest",
    "dependencies": [
        {
            "type": "service",
@@ -14,7 +14,7 @@
        {
            "type": "script",
            "namespace": "api",
-           "path": "/scripts/versionLib.js"
+           "path": "/scripts/http.js"
        }
    ]
 }
