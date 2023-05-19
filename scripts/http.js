@@ -19,7 +19,7 @@ exports.serviceTest = function (){
 }
 
 exports.serviceTest2 = function (){
-    var response = dependencies.svc.http.get({
+    var response = dependencies.http.get({
         url: "https://postman-echo.com/get",
         params: {
             queryVal: "1234"
