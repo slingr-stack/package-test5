@@ -7,6 +7,11 @@
            "name": "http",
            "version": "v1.1.4",
             "instanceId" : "shared"
+       },
+       {
+         "type": "package",
+         "name": "versionTest",
+         "version": "v3.0.0"
        }
    ],
   "configuration":[

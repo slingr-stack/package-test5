@@ -37,3 +37,9 @@ exports.serviceTest2 = function (){
     });
     return JSON.stringify(response);
 }
+
+
+exports.versionTest = function () {
+    var versionResponse = "Version response: " + dependencies.versionTest.versionLib.versionValue();
+    return "{{From package [Service test] -\n" + versionResponse + "}}";
+}
