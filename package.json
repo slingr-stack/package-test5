@@ -98,6 +98,11 @@
            "type": "script",
            "namespace": "api",
            "path": "/scripts/http.js"
-       }
+       },
+     {
+       "type": "uiService",
+       "namespace": "sample",
+       "path": "/uiServices/sample"
+     }
    ]
 }
