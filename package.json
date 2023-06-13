@@ -101,8 +101,8 @@
        },
      {
        "type": "uiService",
-       "namespace": "sample",
-       "path": "/uiServices/sample"
+       "namespace": "oAuth",
+       "path": "/uiServices/oAuth"
      }
    ]
 }
