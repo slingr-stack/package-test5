@@ -37,3 +37,9 @@ exports.serviceTest2 = function (){
     });
     return JSON.stringify(response);
 }
+exports.getTheConfig = function () {
+    return  config.get();
+}
+exports.getConfigParam = function (param) {
+    return  config.get(param);
+}
