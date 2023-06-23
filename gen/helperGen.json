@@ -1,0 +1,906 @@
+{
+  "fileName": "functions",
+  "apiDescriptors": [
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:sitesId/permissions/:permissionId"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:sitesId/permissions"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:sitesId/permissions"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:sitesId/permissions/:permissionId"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:hostname/:site-relative-path"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/me/followedSites"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/users/:user-id/followedSites/add"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/users/:user-id/followedSites/remove"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/columns"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/columns"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/getApplicableContentTypesForList"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/sites"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/operations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/getAllSites"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/columns"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/columns"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/addCopy"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/operations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/columns/:column-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/columns/:column-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/columns/:column-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/columns/:column-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/columns/:column-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/columns/:column-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns/:column-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/:contentTypeId/isPublished"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/:contentTypeId/publish"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/:contentTypeId/unpublish"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/contentTypes/addCopyFromContentTypeHub"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/addCopyFromContentTypeHub"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/:contentTypeId/associateWithHubSites"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/:contentTypeId/copyToDefaultContentLocation"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id/columns"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/contentTypes/:contentType-id/columns"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/column"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/contentTypes/getCompatibleHubContentTypes"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/contentTypes/getCompatibleHubContentTypes"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id/fields"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/items/:item-id/versions"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id/versions"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/analytics/allTime"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id/analytics/allTime"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/drives/:drive-id/items/:item-id/analytics/lastSevenDays"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/analytics/lastSevenDays"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/lists/:list-id/items/:item-id/analytics/lastSevenDays"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions/:documentSetVersionId"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions/:documentSetVersionId"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions/:documentSetVersionId/restore"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/operations/:richLongRunningOperation-ID"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:siteId/lists/:listId/operations/:richLongRunningOperation-ID"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups/:group-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups/:group-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups/:group-id/sets"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/children"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/children"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/children"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/children"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/groups/:group-id/sets/:set-id/terms/:term-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id"
+    },
+    {
+      "method": "DELETE",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/relations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/relations"
+    },
+    {
+      "method": "POST",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/relations"
+    },
+    {
+      "method": "GET",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/admin/sharepoint/settings"
+    },
+    {
+      "method": "PATCH",
+      "prefix": "",
+      "suffix": "",
+      "omittableUrlParts": [
+        "v1.0"
+      ],
+      "url": "/v1.0/admin/sharepoint/settings"
+    }
+  ],
+  "endpointName": "sharepoint"
+}

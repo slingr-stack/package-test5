@@ -1,0 +1,57 @@
+{
+    "name": "sharepoint-outh",
+    "label": "Sharepoint Oauth Package",
+    "dependencies": [
+        {
+            "type": "service",
+            "name": "http",
+            "version": "v1.1.5",
+            "instanceId": "shared"
+        },
+        {
+            "type": "package",
+            "name": "oauth",
+            "version": "v1.0.0"
+        }
+    ],
+    "configuration": [
+        {
+            "name": "oauthCallback",
+            "label": "OAuth callback",
+            "description": "The OAuth callback to configure in your GitHub App",
+            "type": "label",
+            "value": "config.WEBHOOK_URL+'/authCallback'"
+        },
+        {
+            "name": "webhooksUrl",
+            "label": "Webhooks URL",
+            "description": "The URL to configure in webhooks of your GitHub App",
+            "type": "label",
+            "value": "@config.WEBHOOK_URL"
+        }
+    ],
+    "events": [
+        {
+            "label": "Webhook",
+            "name": "webhook",
+            "description": "Happens when SharePoint sends a webhook to the endpoint."
+        }
+    ],
+    "metadata": [
+        {
+            "type": "script",
+            "namespace": "api",
+            "path": "/scripts/functions.js"
+        },
+        {
+            "type": "listener",
+            "namespace": "webhook",
+            "path": "/listeners/listeners.js"
+        },
+        {
+            "type": "uiService",
+            "namespace": "oAuth",
+            "path": "/uiServices/oAuth"
+        }
+    ]
+}

@@ -1,0 +1,436 @@
+{
+  "label": "API call to sharepoint",
+  "name": "apiCallSharepoint",
+  "category": "integrations",
+  "description": "This flow step will send generic request to sharepoint",
+  "inputs": [
+    {
+      "label": "Url",
+      "name": "url",
+      "description": "The method and path to which this endpoint is to send requests in a generic way.",
+      "type": "urlParams",
+      "required": "true",
+      "options": {
+        "type": "dropDown",
+        "possibleValues": [
+            {
+              "label": "GET /v1.0/sites/{sitesId}/permissions/{permissionId}"
+            },
+            {
+              "label": "GET /v1.0/sites/{sitesId}/permissions"
+            },
+            {
+              "label": "GET /v1.0/sites/{hostname}/{site-relative-path}"
+            },
+            {
+              "label": "GET /v1.0/sites"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}"
+            },
+            {
+              "label": "GET /v1.0/me/followedSites"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/columns"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/columns/{column-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/contentTypes"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/getApplicableContentTypesForList"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/sites"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/operations"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/operations/{richLongRunningOperation-ID}"
+            },
+            {
+              "label": "GET /v1.0/sites/getAllSites"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/items"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/columns"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/columns/{column-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/contentTypes"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/lists/{listId}/operations"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/lists/{listId}/operations/{richLongRunningOperation-ID}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/contentTypes/{contentType-id}/columns"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}/columns"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/contentTypes/{contentTypeId}/isPublished"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/lists/{listId}/contentTypes/getCompatibleHubContentTypes"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/contentTypes/getCompatibleHubContentTypes"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/items/{item-id}/versions"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/versions"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/analytics/allTime"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/analytics/allTime"
+            },
+            {
+              "label": "GET /v1.0/drives/{drive-id}/items/{item-id}/analytics/lastSevenDays"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/analytics/lastSevenDays"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/analytics/lastSevenDays"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/lists/{listId}/items/{itemId}/documentSetVersions"
+            },
+            {
+              "label": "GET /v1.0/sites/{siteId}/lists/{listId}/items/{itemId}/documentSetVersions/{documentSetVersionId}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/groups"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/groups/{group-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/groups/{group-id}/sets"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}/children"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}/children"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/groups/{group-id}/sets/{set-id}/terms/{term-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}/relations"
+            },
+            {
+              "label": "GET /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}/relations"
+            },
+            {
+              "label": "GET /v1.0/admin/sharepoint/settings"
+            },
+            {
+              "label": "POST /v1.0/sites/{sitesId}/permissions"
+            },
+            {
+              "label": "POST /v1.0/users/{user-id}/followedSites/add"
+            },
+            {
+              "label": "POST /v1.0/users/{user-id}/followedSites/remove"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/columns"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/contentTypes"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/lists"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/lists/{list-id}/columns"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/addCopy"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/contentTypes/{contentTypeId}/publish"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/contentTypes/{contentTypeId}/unpublish"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/lists/{listId}/contentTypes/addCopyFromContentTypeHub"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/contentTypes/addCopyFromContentTypeHub"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/contentTypes/{contentTypeId}/associateWithHubSites"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/contentTypes/{contentTypeId}/copyToDefaultContentLocation"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/contentTypes/{contentType-id}/columns"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}/column"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/lists/{list-id}/items"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/lists/{listId}/items/{itemId}/documentSetVersions"
+            },
+            {
+              "label": "POST /v1.0/sites/{siteId}/lists/{listId}/items/{itemId}/documentSetVersions/{documentSetVersionId}/restore"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/termStore/groups"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/termStore/sets"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}/children"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/termStore/sets/{set-id}/children"
+            },
+            {
+              "label": "POST /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}/relations"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{sitesId}/permissions/{permissionId}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/columns/{column-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/lists/{list-id}/columns/{column-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}/fields"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/termStore"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/termStore/sets/{set-id}"
+            },
+            {
+              "label": "PATCH /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}"
+            },
+            {
+              "label": "PATCH /v1.0/admin/sharepoint/settings"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/columns/{column-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/lists/{list-id}/columns/{column-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}/columns/{column-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/lists/{list-id}/contentTypes/{contentType-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/lists/{list-id}/items/{item-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{siteId}/lists/{listId}/items/{itemId}/documentSetVersions/{documentSetVersionId}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/termStore/groups/{group-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/termStore/sets/{set-id}"
+            },
+            {
+              "label": "DELETE /v1.0/sites/{site-id}/termStore/sets/{set-id}/terms/{term-id}"
+            }
+        ]
+      }
+    },
+    {
+      "label": "Headers",
+      "name": "headers",
+      "description": "Let the client and the server pass additional information with the HTTP request in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Query Params",
+      "name": "params",
+      "description": "Parameters attached to the end of a url in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "json",
+      "description": "Content to be sent to the server.",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Override Settings",
+      "name": "overrideSettings",
+      "type": "boolean",
+      "description": "If true, allows adding configurations",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Follow Redirects",
+      "name": "followRedirects",
+      "type": "boolean",
+      "description": "Follow the redirects when a HTTP request is executed",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Download",
+      "name": "download",
+      "type": "boolean",
+      "description": "Indicates that the resource has to be downloaded into a file instead of returning it in the response.",
+      "visibility": "config.overrideSettings && config.events != \"fileDownloaded\"",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "File Name",
+      "name": "fileName",
+      "description": "If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.",
+      "visibility": "(config.overrideSettings && config.download) || config.events === \"fileDownloaded\"",
+      "type": "text",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Full Response",
+      "name": "fullResponse",
+      "type": "boolean",
+      "description": "Include extended information about response",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Connection timeout",
+      "name": "connectionTimeout",
+      "description": "Connect timeout interval, in milliseconds (0 = infinity). Default value: 5000 ms (5 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "5000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.connectionTimeout || utils.isPlaceholder(config.connectionTimeout) || utils.getInteger(config.connectionTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Read timeout",
+      "name": "readTimeout",
+      "description": "Read timeout interval, in milliseconds (0 = infinity). Default value: 60000 ms (60 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "60000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.readTimeout || utils.isPlaceholder(config.readTimeout) || utils.getInteger(config.readTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}
