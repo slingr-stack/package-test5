@@ -47,11 +47,6 @@
             "type": "listener",
             "namespace": "webhook",
             "path": "/listeners/listeners.js"
-        },
-        {
-            "type": "uiService",
-            "namespace": "oAuth",
-            "path": "/uiServices/oAuth"
         }
     ]
 }
