@@ -16,6 +16,42 @@
     ],
     "configuration": [
         {
+            "label": "Configuration id",
+            "description": "Id used to store tokens",
+            "name": "id",
+            "type": "text"
+        },
+        {
+            "label": "Auth URL",
+            "name": "authUrl",
+            "type": "text"
+        },
+        {
+            "label": "Access Token URL",
+            "name": "accessTokenUrl",
+            "type": "text"
+        },
+        {
+            "label": "Client Id",
+            "name": "clientId",
+            "type": "text"
+        },
+        {
+            "label": "Client Secret",
+            "name": "clientSecret",
+            "type": "text"
+        },
+        {
+            "label": "Scope",
+            "name": "scope",
+            "type": "text"
+        },
+        {
+            "label": "State",
+            "name": "state",
+            "type": "text"
+        },
+        {
             "name": "oauthCallback",
             "label": "OAuth callback",
             "description": "The OAuth callback to configure in your GitHub App",
