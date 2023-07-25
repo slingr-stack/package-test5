@@ -14,7 +14,7 @@
             "version": "v1.0.1"
         }
     ],
-    "configurationManager": "/configManager.js",
+    "configurationManager": "/configurationManager.js",
     "configuration": [
         {
             "label": "Configuration id",
