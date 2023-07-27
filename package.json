@@ -72,6 +72,11 @@
             "label": "Webhook",
             "name": "webhook",
             "description": "Happens when SharePoint sends a webhook to the endpoint."
+        },
+        {
+            "label": "User connected to sharepoint",
+            "name": "userConnected",
+            "description": "Happens when a user successfully connects to SharePoint ."
         }
     ],
     "metadata": [

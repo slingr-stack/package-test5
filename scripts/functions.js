@@ -2,7 +2,7 @@
  Dependencies
  ****************************************************/
 
-var httpService = svc.http;
+var httpService = dependencies.http;
 
 /****************************************************
  Helpers
@@ -153,7 +153,7 @@ exports.sites.permissions.get = function (sitesId, permissionId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.permissions.post = function (sitesId, httpOptions) {
@@ -164,7 +164,7 @@ exports.sites.permissions.post = function (sitesId, httpOptions) {
     var url = parse('/v1.0/sites/:sitesId/permissions', [sitesId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.permissions.patch = function (sitesId, permissionId, httpOptions) {
@@ -175,7 +175,7 @@ exports.sites.permissions.patch = function (sitesId, permissionId, httpOptions) 
     var url = parse('/v1.0/sites/:sitesId/permissions/:permissionId', [sitesId, permissionId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.get = function (hostname, siteRelativePath, httpOptions) {
@@ -201,7 +201,7 @@ exports.sites.get = function (hostname, siteRelativePath, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.get = function (siteId, listId, httpOptions) {
@@ -227,14 +227,14 @@ exports.sites.lists.get = function (siteId, listId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.me.followedSites.get = function (httpOptions) {
     var url = parse('/v1.0/me/followedSites');
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.users.followedSites.add.post = function (userId, httpOptions) {
@@ -245,7 +245,7 @@ exports.users.followedSites.add.post = function (userId, httpOptions) {
     var url = parse('/v1.0/users/:user-id/followedSites/add', [userId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.users.followedSites.remove.post = function (userId, httpOptions) {
@@ -256,7 +256,7 @@ exports.users.followedSites.remove.post = function (userId, httpOptions) {
     var url = parse('/v1.0/users/:user-id/followedSites/remove', [userId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.columns.get = function (siteId, columnId, httpOptions) {
@@ -282,7 +282,7 @@ exports.sites.columns.get = function (siteId, columnId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.columns.post = function (siteId, httpOptions) {
@@ -293,7 +293,7 @@ exports.sites.columns.post = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/columns', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.get = function (siteId, contentTypeId, httpOptions) {
@@ -319,7 +319,7 @@ exports.sites.contentTypes.get = function (siteId, contentTypeId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.contentTypes.post = function (siteId, httpOptions) {
@@ -330,7 +330,7 @@ exports.sites.contentTypes.post = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/contentTypes', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.getApplicableContentTypesForList.get = function (siteId, httpOptions) {
@@ -341,7 +341,7 @@ exports.sites.getApplicableContentTypesForList.get = function (siteId, httpOptio
     var url = parse('/v1.0/sites/:siteId/getApplicableContentTypesForList', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.post = function (siteId, httpOptions) {
@@ -352,7 +352,7 @@ exports.sites.lists.post = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/lists', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.sites.get = function (siteId, httpOptions) {
@@ -363,7 +363,7 @@ exports.sites.sites.get = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/sites', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.operations.get = function (siteId, richLongRunningOperationID, httpOptions) {
@@ -389,14 +389,14 @@ exports.sites.operations.get = function (siteId, richLongRunningOperationID, htt
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.getAllSites.get = function (httpOptions) {
     var url = parse('/v1.0/sites/getAllSites');
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.get = function (siteId, listId, itemId, httpOptions) {
@@ -422,7 +422,7 @@ exports.sites.lists.items.get = function (siteId, listId, itemId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.columns.get = function (siteId, listId, columnId, httpOptions) {
@@ -448,7 +448,7 @@ exports.sites.lists.columns.get = function (siteId, listId, columnId, httpOption
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.columns.post = function (siteId, listId, httpOptions) {
@@ -459,7 +459,7 @@ exports.sites.lists.columns.post = function (siteId, listId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/columns', [siteId, listId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.get = function (siteId, listId, contentTypeId, httpOptions) {
@@ -485,7 +485,7 @@ exports.sites.lists.contentTypes.get = function (siteId, listId, contentTypeId, 
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.addCopy.post = function (siteId, listId, httpOptions) {
@@ -496,7 +496,7 @@ exports.sites.lists.contentTypes.addCopy.post = function (siteId, listId, httpOp
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/addCopy', [siteId, listId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.operations.get = function (siteId, listId, richLongRunningOperationID, httpOptions) {
@@ -522,7 +522,7 @@ exports.sites.lists.operations.get = function (siteId, listId, richLongRunningOp
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.contentTypes.columns.get = function (siteId, contentTypeId, columnId, httpOptions) {
@@ -548,7 +548,7 @@ exports.sites.contentTypes.columns.get = function (siteId, contentTypeId, column
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.columns.get = function (siteId, listId, contentTypeId, columnId, httpOptions) {
@@ -574,7 +574,7 @@ exports.sites.lists.contentTypes.columns.get = function (siteId, listId, content
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.columns.patch = function (siteId, columnId, httpOptions) {
@@ -585,7 +585,7 @@ exports.sites.columns.patch = function (siteId, columnId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/columns/:column-id', [siteId, columnId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.lists.columns.patch = function (siteId, listId, columnId, httpOptions) {
@@ -596,7 +596,7 @@ exports.sites.lists.columns.patch = function (siteId, listId, columnId, httpOpti
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/columns/:column-id', [siteId, listId, columnId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.contentTypes.columns.patch = function (siteId, contentTypeId, columnId, httpOptions) {
@@ -607,7 +607,7 @@ exports.sites.contentTypes.columns.patch = function (siteId, contentTypeId, colu
     var url = parse('/v1.0/sites/:site-id/contentTypes/:contentType-id/columns/:column-id', [siteId, contentTypeId, columnId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.columns.patch = function (siteId, listId, contentTypeId, columnId, httpOptions) {
@@ -618,7 +618,7 @@ exports.sites.lists.contentTypes.columns.patch = function (siteId, listId, conte
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns/:column-id', [siteId, listId, contentTypeId, columnId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.columns.delete = function (siteId, columnId, httpOptions) {
@@ -629,7 +629,7 @@ exports.sites.columns.delete = function (siteId, columnId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/columns/:column-id', [siteId, columnId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.lists.columns.delete = function (siteId, listId, columnId, httpOptions) {
@@ -640,7 +640,7 @@ exports.sites.lists.columns.delete = function (siteId, listId, columnId, httpOpt
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/columns/:column-id', [siteId, listId, columnId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.contentTypes.columns.delete = function (siteId, contentTypeId, columnId, httpOptions) {
@@ -651,7 +651,7 @@ exports.sites.contentTypes.columns.delete = function (siteId, contentTypeId, col
     var url = parse('/v1.0/sites/:site-id/contentTypes/:contentType-id/columns/:column-id', [siteId, contentTypeId, columnId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.columns.delete = function (siteId, listId, contentTypeId, columnId, httpOptions) {
@@ -662,7 +662,7 @@ exports.sites.lists.contentTypes.columns.delete = function (siteId, listId, cont
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/columns/:column-id', [siteId, listId, contentTypeId, columnId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.contentTypes.patch = function (siteId, contentTypeId, httpOptions) {
@@ -673,7 +673,7 @@ exports.sites.contentTypes.patch = function (siteId, contentTypeId, httpOptions)
     var url = parse('/v1.0/sites/:site-id/contentTypes/:contentType-id', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.patch = function (siteId, listId, contentTypeId, httpOptions) {
@@ -684,7 +684,7 @@ exports.sites.lists.contentTypes.patch = function (siteId, listId, contentTypeId
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id', [siteId, listId, contentTypeId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.contentTypes.delete = function (siteId, contentTypeId, httpOptions) {
@@ -695,7 +695,7 @@ exports.sites.contentTypes.delete = function (siteId, contentTypeId, httpOptions
     var url = parse('/v1.0/sites/:site-id/contentTypes/:contentType-id', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.delete = function (siteId, listId, contentTypeId, httpOptions) {
@@ -706,7 +706,7 @@ exports.sites.lists.contentTypes.delete = function (siteId, listId, contentTypeI
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id', [siteId, listId, contentTypeId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.contentTypes.isPublished.get = function (siteId, contentTypeId, httpOptions) {
@@ -717,7 +717,7 @@ exports.sites.contentTypes.isPublished.get = function (siteId, contentTypeId, ht
     var url = parse('/v1.0/sites/:siteId/contentTypes/:contentTypeId/isPublished', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.contentTypes.publish.post = function (siteId, contentTypeId, httpOptions) {
@@ -728,7 +728,7 @@ exports.sites.contentTypes.publish.post = function (siteId, contentTypeId, httpO
     var url = parse('/v1.0/sites/:siteId/contentTypes/:contentTypeId/publish', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.unpublish.post = function (siteId, contentTypeId, httpOptions) {
@@ -739,7 +739,7 @@ exports.sites.contentTypes.unpublish.post = function (siteId, contentTypeId, htt
     var url = parse('/v1.0/sites/:siteId/contentTypes/:contentTypeId/unpublish', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.addCopyFromContentTypeHub.post = function (siteId, listId, httpOptions) {
@@ -750,7 +750,7 @@ exports.sites.lists.contentTypes.addCopyFromContentTypeHub.post = function (site
     var url = parse('/v1.0/sites/:siteId/lists/:listId/contentTypes/addCopyFromContentTypeHub', [siteId, listId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.addCopyFromContentTypeHub.post = function (siteId, httpOptions) {
@@ -761,7 +761,7 @@ exports.sites.contentTypes.addCopyFromContentTypeHub.post = function (siteId, ht
     var url = parse('/v1.0/sites/:siteId/contentTypes/addCopyFromContentTypeHub', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.associateWithHubSites.post = function (siteId, contentTypeId, httpOptions) {
@@ -772,7 +772,7 @@ exports.sites.contentTypes.associateWithHubSites.post = function (siteId, conten
     var url = parse('/v1.0/sites/:siteId/contentTypes/:contentTypeId/associateWithHubSites', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.copyToDefaultContentLocation.post = function (siteId, contentTypeId, httpOptions) {
@@ -783,7 +783,7 @@ exports.sites.contentTypes.copyToDefaultContentLocation.post = function (siteId,
     var url = parse('/v1.0/sites/:siteId/contentTypes/:contentTypeId/copyToDefaultContentLocation', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.contentTypes.columns.post = function (siteId, contentTypeId, httpOptions) {
@@ -794,7 +794,7 @@ exports.sites.contentTypes.columns.post = function (siteId, contentTypeId, httpO
     var url = parse('/v1.0/sites/:site-id/contentTypes/:contentType-id/columns', [siteId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.column.post = function (siteId, listId, contentTypeId, httpOptions) {
@@ -805,7 +805,7 @@ exports.sites.lists.contentTypes.column.post = function (siteId, listId, content
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/contentTypes/:contentType-id/column', [siteId, listId, contentTypeId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.contentTypes.getCompatibleHubContentTypes.get = function (siteId, listId, httpOptions) {
@@ -816,7 +816,7 @@ exports.sites.lists.contentTypes.getCompatibleHubContentTypes.get = function (si
     var url = parse('/v1.0/sites/:siteId/lists/:listId/contentTypes/getCompatibleHubContentTypes', [siteId, listId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.contentTypes.getCompatibleHubContentTypes.get = function (siteId, httpOptions) {
@@ -827,7 +827,7 @@ exports.sites.contentTypes.getCompatibleHubContentTypes.get = function (siteId, 
     var url = parse('/v1.0/sites/:siteId/contentTypes/getCompatibleHubContentTypes', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.post = function (siteId, listId, httpOptions) {
@@ -838,7 +838,7 @@ exports.sites.lists.items.post = function (siteId, listId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items', [siteId, listId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.items.patch = function (siteId, listId, itemId, httpOptions) {
@@ -849,7 +849,7 @@ exports.sites.lists.items.patch = function (siteId, listId, itemId, httpOptions)
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.lists.items.fields.patch = function (siteId, listId, itemId, httpOptions) {
@@ -860,7 +860,7 @@ exports.sites.lists.items.fields.patch = function (siteId, listId, itemId, httpO
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id/fields', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.lists.items.delete = function (siteId, listId, itemId, httpOptions) {
@@ -871,7 +871,7 @@ exports.sites.lists.items.delete = function (siteId, listId, itemId, httpOptions
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.items.versions.get = function (siteId, itemId, httpOptions) {
@@ -882,7 +882,7 @@ exports.sites.items.versions.get = function (siteId, itemId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/items/:item-id/versions', [siteId, itemId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.versions.get = function (siteId, listId, itemId, httpOptions) {
@@ -893,7 +893,7 @@ exports.sites.lists.items.versions.get = function (siteId, listId, itemId, httpO
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id/versions', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.analytics.allTime.get = function (siteId, httpOptions) {
@@ -904,7 +904,7 @@ exports.sites.analytics.allTime.get = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/analytics/allTime', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.analytics.allTime.get = function (siteId, listId, itemId, httpOptions) {
@@ -915,7 +915,7 @@ exports.sites.lists.items.analytics.allTime.get = function (siteId, listId, item
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id/analytics/allTime', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.drives.items.analytics.lastSevenDays.get = function (driveId, itemId, httpOptions) {
@@ -926,7 +926,7 @@ exports.drives.items.analytics.lastSevenDays.get = function (driveId, itemId, ht
     var url = parse('/v1.0/drives/:drive-id/items/:item-id/analytics/lastSevenDays', [driveId, itemId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.analytics.lastSevenDays.get = function (siteId, httpOptions) {
@@ -937,7 +937,7 @@ exports.sites.analytics.lastSevenDays.get = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/analytics/lastSevenDays', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.analytics.lastSevenDays.get = function (siteId, listId, itemId, httpOptions) {
@@ -948,7 +948,7 @@ exports.sites.lists.items.analytics.lastSevenDays.get = function (siteId, listId
     var url = parse('/v1.0/sites/:site-id/lists/:list-id/items/:item-id/analytics/lastSevenDays', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.documentSetVersions.get = function (siteId, listId, itemId, documentSetVersionId, httpOptions) {
@@ -974,7 +974,7 @@ exports.sites.lists.items.documentSetVersions.get = function (siteId, listId, it
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.lists.items.documentSetVersions.post = function (siteId, listId, itemId, httpOptions) {
@@ -985,7 +985,7 @@ exports.sites.lists.items.documentSetVersions.post = function (siteId, listId, i
     var url = parse('/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions', [siteId, listId, itemId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.lists.items.documentSetVersions.delete = function (siteId, listId, itemId, documentSetVersionId, httpOptions) {
@@ -996,7 +996,7 @@ exports.sites.lists.items.documentSetVersions.delete = function (siteId, listId,
     var url = parse('/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions/:documentSetVersionId', [siteId, listId, itemId, documentSetVersionId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.lists.items.documentSetVersions.restore.post = function (siteId, listId, itemId, documentSetVersionId, httpOptions) {
@@ -1007,7 +1007,7 @@ exports.sites.lists.items.documentSetVersions.restore.post = function (siteId, l
     var url = parse('/v1.0/sites/:siteId/lists/:listId/items/:itemId/documentSetVersions/:documentSetVersionId/restore', [siteId, listId, itemId, documentSetVersionId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.termStore.get = function (siteId, httpOptions) {
@@ -1018,7 +1018,7 @@ exports.sites.termStore.get = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore', [siteId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.patch = function (siteId, httpOptions) {
@@ -1029,7 +1029,7 @@ exports.sites.termStore.patch = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore', [siteId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.termStore.groups.get = function (siteId, groupId, httpOptions) {
@@ -1055,7 +1055,7 @@ exports.sites.termStore.groups.get = function (siteId, groupId, httpOptions) {
     }
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.groups.post = function (siteId, httpOptions) {
@@ -1066,7 +1066,7 @@ exports.sites.termStore.groups.post = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore/groups', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.termStore.groups.delete = function (siteId, groupId, httpOptions) {
@@ -1077,7 +1077,7 @@ exports.sites.termStore.groups.delete = function (siteId, groupId, httpOptions) 
     var url = parse('/v1.0/sites/:site-id/termStore/groups/:group-id', [siteId, groupId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.termStore.groups.sets.get = function (siteId, groupId, httpOptions) {
@@ -1088,7 +1088,7 @@ exports.sites.termStore.groups.sets.get = function (siteId, groupId, httpOptions
     var url = parse('/v1.0/sites/:site-id/termStore/groups/:group-id/sets', [siteId, groupId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.post = function (siteId, httpOptions) {
@@ -1099,7 +1099,7 @@ exports.sites.termStore.sets.post = function (siteId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore/sets', [siteId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.get = function (siteId, setId, httpOptions) {
@@ -1110,7 +1110,7 @@ exports.sites.termStore.sets.get = function (siteId, setId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id', [siteId, setId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.patch = function (siteId, setId, httpOptions) {
@@ -1121,7 +1121,7 @@ exports.sites.termStore.sets.patch = function (siteId, setId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id', [siteId, setId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.delete = function (siteId, setId, httpOptions) {
@@ -1132,7 +1132,7 @@ exports.sites.termStore.sets.delete = function (siteId, setId, httpOptions) {
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id', [siteId, setId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.children.get = function (siteId, setId, httpOptions) {
@@ -1143,7 +1143,7 @@ exports.sites.termStore.sets.children.get = function (siteId, setId, httpOptions
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/children', [siteId, setId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.children.get = function (siteId, setId, termId, httpOptions) {
@@ -1154,7 +1154,7 @@ exports.sites.termStore.sets.terms.children.get = function (siteId, setId, termI
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/children', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.children.post = function (siteId, setId, termId, httpOptions) {
@@ -1165,7 +1165,7 @@ exports.sites.termStore.sets.terms.children.post = function (siteId, setId, term
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/children', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.children.post = function (siteId, setId, httpOptions) {
@@ -1176,7 +1176,7 @@ exports.sites.termStore.sets.children.post = function (siteId, setId, httpOption
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/children', [siteId, setId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.sites.termStore.groups.sets.terms.get = function (siteId, groupId, setId, termId, httpOptions) {
@@ -1187,7 +1187,7 @@ exports.sites.termStore.groups.sets.terms.get = function (siteId, groupId, setId
     var url = parse('/v1.0/sites/:site-id/termStore/groups/:group-id/sets/:set-id/terms/:term-id', [siteId, groupId, setId, termId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.get = function (siteId, setId, termId, httpOptions) {
@@ -1198,7 +1198,7 @@ exports.sites.termStore.sets.terms.get = function (siteId, setId, termId, httpOp
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.patch = function (siteId, setId, termId, httpOptions) {
@@ -1209,7 +1209,7 @@ exports.sites.termStore.sets.terms.patch = function (siteId, setId, termId, http
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.delete = function (siteId, setId, termId, httpOptions) {
@@ -1220,7 +1220,7 @@ exports.sites.termStore.sets.terms.delete = function (siteId, setId, termId, htt
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] DELETE from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options));
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.relations.get = function (siteId, setId, httpOptions) {
@@ -1231,7 +1231,7 @@ exports.sites.termStore.sets.relations.get = function (siteId, setId, httpOption
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/relations', [siteId, setId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.relations.get = function (siteId, setId, termId, httpOptions) {
@@ -1242,7 +1242,7 @@ exports.sites.termStore.sets.terms.relations.get = function (siteId, setId, term
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/relations', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.sites.termStore.sets.terms.relations.post = function (siteId, setId, termId, httpOptions) {
@@ -1253,21 +1253,21 @@ exports.sites.termStore.sets.terms.relations.post = function (siteId, setId, ter
     var url = parse('/v1.0/sites/:site-id/termStore/sets/:set-id/terms/:term-id/relations', [siteId, setId, termId]);
     sys.logs.debug('[sharepoint] POST from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options));
+    return handleRequestWithRetry(httpService.post, Sharepoint(options));
 };
 
 exports.admin.sharepoint.settings.get = function (httpOptions) {
     var url = parse('/v1.0/admin/sharepoint/settings');
     sys.logs.debug('[sharepoint] GET from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options));
+    return handleRequestWithRetry(httpService.get, Sharepoint(options));
 };
 
 exports.admin.sharepoint.settings.patch = function (httpOptions) {
     var url = parse('/v1.0/admin/sharepoint/settings');
     sys.logs.debug('[sharepoint] PATCH from: ' + url);
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options));
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options));
 };
 
 /****************************************************
@@ -1276,37 +1276,37 @@ exports.admin.sharepoint.settings.patch = function (httpOptions) {
 
 exports.get = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.get(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.get, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.post = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.post(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.post, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.put = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.put(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.put, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.patch = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.patch(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.patch, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.delete = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.delete(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.delete, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.head = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.head(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.head, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.options = function (url, httpOptions, callbackData, callbacks) {
     var options = checkHttpOptions(url, httpOptions);
-    return httpService.options(Sharepoint(options), callbackData, callbacks);
+    return handleRequestWithRetry(httpService.options, Sharepoint(options), callbackData, callbacks);
 };
 
 exports.utils = {};
@@ -1416,6 +1416,24 @@ var parse = function (str) {
 }
 
 /****************************************************
+ oauth
+ ****************************************************/
+exports.getAccessToken = function () {
+    return dependencies.oauth.functions.connectUser('sharepoint:userConnected');
+}
+
+function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
+    sys.logs.info("Call function handleRequestWithRetry");
+    try {
+        return requestFn(options, callbackData, callbacks);
+    } catch (error) {
+        sys.logs.error(JSON.stringify(error));
+        dependencies.oauth.functions.refreshToken();
+        return requestFn(setAuthorization(options), callbackData, callbacks);
+    }
+}
+
+/****************************************************
  Constants
  ****************************************************/
 
@@ -1457,7 +1475,7 @@ function setAuthorization(options) {
     var authorization = options.authorization || {};
     authorization = mergeJSON(authorization, {
         type: "oauth2",
-        accessToken: sys.storage.get(sys.context.getCurrentUserRecord().id() +' - access_token'),
+        accessToken: sys.storage.get(config.get("oauth").id + ' - access_token'),
         headerPrefix: "Bearer"
     });
     options.authorization = authorization;

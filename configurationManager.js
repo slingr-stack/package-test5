@@ -4,7 +4,7 @@
  The configuration object should be build in order to configure the package dependencies
  ****************************************************/
 
-configurationManager = function (config) {
+let configurationManager = function (config) {
     let newConfig = {
         oauth: {}
     };
