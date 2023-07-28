@@ -16,5 +16,6 @@ let configurationManager = function (config) {
     oauthConfig.clientSecret = config.clientSecret;
     oauthConfig.scope = config.scope;
     oauthConfig.state = config.state;
+    oauthConfig.oauthCallback = config.oauthCallback;
     return newConfig;
 }
