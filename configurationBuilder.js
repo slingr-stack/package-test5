@@ -2,9 +2,11 @@
  Configuration manager
 
  The configuration object should be build in order to configure the package dependencies
+
+
  ****************************************************/
 
-let configurationManager = function (config) {
+let configurationBuilder = function (config) {
     let newConfig = {
         oauth: {}
     };
