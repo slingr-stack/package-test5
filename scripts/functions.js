@@ -1419,7 +1419,7 @@ var parse = function (str) {
  oauth
  ****************************************************/
 exports.getAccessToken = function () {
-    return dependencies.oauth.functions.connectUser('sharepoint-outh:userConnected');
+    return dependencies.oauth.functions.connectUser('sharepoint:userConnected');
 }
 
 function handleRequestWithRetry(requestFn, options, callbackData, callbacks) {
