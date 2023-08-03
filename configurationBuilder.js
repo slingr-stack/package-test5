@@ -1,7 +1,7 @@
 /****************************************************
- Configuration manager
+ Configuration builder
 
- The configuration object should be build in order to configure the package dependencies
+ The configuration object should be built and returned in order to configure the package dependencies
 
 
  ****************************************************/
