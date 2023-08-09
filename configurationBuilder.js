@@ -1,4 +1,4 @@
-/****************************************************
+/*****************************************************
  Configuration builder
 
  The configuration object should be built and returned in order to configure the package dependencies
