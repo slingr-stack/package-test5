@@ -3,13 +3,13 @@
 
  The configuration object should be built and returned in order to configure the package dependencies
 
-
  ****************************************************/
 
 let configurationBuilder = function (config) {
     let newConfig = {
         oauth: {}
     };
+    newConfig.oauth = {};
     let oauthConfig = newConfig.oauth
     oauthConfig.id = config.id;
     oauthConfig.authUrl = config.authUrl;
