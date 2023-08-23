@@ -11,7 +11,7 @@
         {
             "type": "package",
             "name": "oauth",
-            "version": "^v1.16.0"
+            "version": "^v1.0.4"
         }
     ],
     "configurationBuilder": "/configurationBuilder.js",
@@ -82,12 +82,10 @@
     "metadata": [
         {
             "type": "script",
-            "namespace": "api",
             "path": "/scripts/functions.js"
         },
         {
             "type": "listener",
-            "namespace": "webhook",
             "path": "/listeners/listeners.js"
         }
     ]
